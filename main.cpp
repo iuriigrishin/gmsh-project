@@ -1,41 +1,39 @@
 #include <set>
 #include <gmsh.h>
+#include <cmath>
+#include <vector>
 
-namespace geo = gmsh::model::geo;
+struct Point {
+  double x, y, z;
+  int tag;
+};
 
-int main(int argc, char **argv)
-{
+void buildCircle(double r, double l) {
+  Point Q = {l, 0.0, 0.0, 1};
+  gmsh::model::occ::addCircle(Q.x, Q.y, Q.z, r, 1);
+}
+
+void revolveShape(int curveTag) {
+  int loopTag = gmsh::model::occ::addCurveLoop({curveTag});
+  int surfTag = gmsh::model::occ::addPlaneSurface({loopTag});
+
+  std::vector<std::pair<int,int>> out;
+  gmsh::model::occ::revolve({{2, surfTag}}, 0, 0, 0,  0, 0, 1,  1*M_PI - 0.1,  out);
+  
+}
+
+int main(int argc, char **argv) {
   gmsh::initialize();
-  gmsh::model::add("circle");
-
-  double lc = 0.1;
-
-  enum { C=1, P1, P2, P3, P4 };
+  gmsh::model::add("Torus");
 
   double r = 1.0;
+  double l = 4.0;
 
-  geo::addPoint(0,  0, 0, lc, C);
+  buildCircle(r, l);
+  revolveShape(1);
 
-  geo::addPoint( r,  0, 0, lc, P1);
-  geo::addPoint( 0,  r, 0, lc, P2);
-  geo::addPoint(-r,  0, 0, lc, P3);
-  geo::addPoint( 0, -r, 0, lc, P4);
-
-  geo::addCircleArc(P1, C, P2, 1);
-  geo::addCircleArc(P2, C, P3, 2);
-  geo::addCircleArc(P3, C, P4, 3);
-  geo::addCircleArc(P4, C, P1, 4);
-
-  geo::addCurveLoop({1, 2, 3, 4}, 1);
-  geo::addPlaneSurface({1}, 1);
-
-  geo::synchronize();
-
-
-  gmsh::model::mesh::generate(2);
-
-  gmsh::write("circle.msh");
-
+  gmsh::model::occ::synchronize();
+  gmsh::model::mesh::generate(3);
 
   std::set<std::string> args(argv, argv + argc);
   if(!args.count("-nopopup")) gmsh::fltk::run();
