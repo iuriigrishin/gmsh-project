@@ -1,0 +1,3 @@
+/home/user/gmsh-project/build/CMakeFiles/myapp.dir
+/home/user/gmsh-project/build/CMakeFiles/edit_cache.dir
+/home/user/gmsh-project/build/CMakeFiles/rebuild_cache.dir
