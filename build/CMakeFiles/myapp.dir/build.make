@@ -76,15 +76,15 @@ CMakeFiles/myapp.dir/main.cpp.o: CMakeFiles/myapp.dir/flags.make
 CMakeFiles/myapp.dir/main.cpp.o: /home/user/gmsh-project/main.cpp
 CMakeFiles/myapp.dir/main.cpp.o: CMakeFiles/myapp.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/user/gmsh-project/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/myapp.dir/main.cpp.o"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/myapp.dir/main.cpp.o -MF CMakeFiles/myapp.dir/main.cpp.o.d -o CMakeFiles/myapp.dir/main.cpp.o -c /home/user/gmsh-project/main.cpp
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/myapp.dir/main.cpp.o -MF CMakeFiles/myapp.dir/main.cpp.o.d -o CMakeFiles/myapp.dir/main.cpp.o -c /home/user/gmsh-project/main.cpp
 
 CMakeFiles/myapp.dir/main.cpp.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/myapp.dir/main.cpp.i"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/user/gmsh-project/main.cpp > CMakeFiles/myapp.dir/main.cpp.i
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E /home/user/gmsh-project/main.cpp > CMakeFiles/myapp.dir/main.cpp.i
 
 CMakeFiles/myapp.dir/main.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/myapp.dir/main.cpp.s"
-	/usr/bin/c++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/user/gmsh-project/main.cpp -o CMakeFiles/myapp.dir/main.cpp.s
+	/usr/bin/g++ $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S /home/user/gmsh-project/main.cpp -o CMakeFiles/myapp.dir/main.cpp.s
 
 # Object files for target myapp
 myapp_OBJECTS = \

@@ -1,0 +1,8 @@
+[
+{
+  "directory": "/home/user/gmsh-project/build",
+  "command": "/usr/bin/g++   -g -o CMakeFiles/myapp.dir/main.cpp.o -c /home/user/gmsh-project/main.cpp",
+  "file": "/home/user/gmsh-project/main.cpp",
+  "output": "CMakeFiles/myapp.dir/main.cpp.o"
+}
+]
