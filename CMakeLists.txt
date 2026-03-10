@@ -1,5 +1,4 @@
 cmake_minimum_required(VERSION 3.10)
-project(gmsh-project)
+project(gmsh_labs)
 
-add_executable(myapp main.cpp)
-target_link_libraries(myapp gmsh)
+add_subdirectory(lab1_meshes)
