@@ -12,6 +12,7 @@
 ## Лаба 2. Моделиривание удара по кончику карандаша
 
 [![Смотреть видео](https://img.youtube.com/vi/DhCUMZFyOzg/0.jpg)](https://youtu.be/DhCUMZFyOzg)
+Ссылка https://youtu.be/DhCUMZFyOzg
 
 ## Лаба 3. Диполь в неоднородной среде (FEniCS)
 
