@@ -12,7 +12,6 @@ int CreateTorusProfile(const TorusParams &params) {
   double R = params.R;
   double r = params.r;
 
-  // xz plane
   int p1 = gmsh::model::occ::addPoint(R + r, 0.0,  0.0);
   int p2 = gmsh::model::occ::addPoint(R,     0.0,  r  );
   int p3 = gmsh::model::occ::addPoint(R - r, 0.0,  0.0);
@@ -62,12 +61,21 @@ int main(int argc, char **argv) {
   gmsh::model::add("Torus");
 
   TorusParams torus{4.0, 1.0};
+  auto outerVol = CreateTorus(torus);
 
-  auto created = CreateTorus(torus); 
+  TorusParams innerTorus{4.0, 0.5};
+  auto innerVol = CreateTorus(innerTorus);
   
   gmsh::model::occ::synchronize();
-  BuildMesh(0.6);
 
+  std::vector<std::pair<int,int>> cutObjects, toolObjects;
+  gmsh::vectorpair outMap;
+  std::vector<gmsh::vectorpair> outMapTool;
+  for (auto &e : outerVol) if (e.first == 3) cutObjects.push_back(e);
+  for (auto &e : innerVol) if (e.first == 3) toolObjects.push_back(e);
+
+  gmsh::model::occ::cut(cutObjects, toolObjects, outMap, outMapTool, -1, true, true);
+  BuildMesh(0.2);
 
   std::set<std::string> args(argv, argv + argc);
   if(!args.count("-nopopup")) gmsh::fltk::run();
