@@ -142,6 +142,19 @@ lab1_stl/fast:
 	$(MAKE) $(MAKESILENT) -f lab1_meshes/CMakeFiles/lab1_stl.dir/build.make lab1_meshes/CMakeFiles/lab1_stl.dir/build
 .PHONY : lab1_stl/fast
 
+#=============================================================================
+# Target rules for targets named main
+
+# Build rule for target.
+main: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 main
+.PHONY : main
+
+# fast build rule for target.
+main/fast:
+	$(MAKE) $(MAKESILENT) -f lab2_vtk/CMakeFiles/main.dir/build.make lab2_vtk/CMakeFiles/main.dir/build
+.PHONY : main/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -152,6 +165,7 @@ help:
 	@echo "... rebuild_cache"
 	@echo "... lab1_stl"
 	@echo "... lab1_torus"
+	@echo "... main"
 .PHONY : help
 
 
