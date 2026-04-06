@@ -1,9 +1,0 @@
-/Users/iurii/Documents/mipt/2sem/matprac/gmsh-project/build/CMakeFiles/edit_cache.dir
-/Users/iurii/Documents/mipt/2sem/matprac/gmsh-project/build/CMakeFiles/rebuild_cache.dir
-/Users/iurii/Documents/mipt/2sem/matprac/gmsh-project/build/lab1_meshes/CMakeFiles/lab1_torus.dir
-/Users/iurii/Documents/mipt/2sem/matprac/gmsh-project/build/lab1_meshes/CMakeFiles/lab1_stl.dir
-/Users/iurii/Documents/mipt/2sem/matprac/gmsh-project/build/lab1_meshes/CMakeFiles/edit_cache.dir
-/Users/iurii/Documents/mipt/2sem/matprac/gmsh-project/build/lab1_meshes/CMakeFiles/rebuild_cache.dir
-/Users/iurii/Documents/mipt/2sem/matprac/gmsh-project/build/lab2_vtk/CMakeFiles/main.dir
-/Users/iurii/Documents/mipt/2sem/matprac/gmsh-project/build/lab2_vtk/CMakeFiles/edit_cache.dir
-/Users/iurii/Documents/mipt/2sem/matprac/gmsh-project/build/lab2_vtk/CMakeFiles/rebuild_cache.dir
