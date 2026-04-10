@@ -1,6 +1,6 @@
 #include "core/grid.hpp"
 
-Grid::Grid(int n, double domain_size, Material material) : n_(n), domain_size_(domain_size),
+Grid::Grid(int n, double domain_size, sim::SimMaterial material) : n_(n), domain_size_(domain_size),
   dx_(domain_size / n), mat_(material), data_(n * n, {0.0}) {}
 
 double& Grid::H(int i, int j) {
@@ -48,7 +48,7 @@ double Grid::conductivity(int i, int j) const {
 	}
 
   double frac = h / rhoL;
-  return {(1.0 - frac) * mat_.k_solid + frac * mat_.k_liquid};
+  return (1.0 - frac) * mat_.k_solid + frac * mat_.k_liquid;
 }
 
 double Grid::H_from_T_solid(double T_celsius) const {

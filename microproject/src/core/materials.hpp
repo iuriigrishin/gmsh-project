@@ -1,6 +1,6 @@
 #pragma once
-
-struct Material {
+namespace sim {
+struct SimMaterial {
   double k_solid   = 2.2;       // теплопроводность льда, Вт/(м*К)
   double k_liquid  = 0.6;       // теплопроводность воды, Вт/(м*К)
   double c_solid   = 2090.0;    // теплоёмкость льда, Дж/(кг*К)
@@ -9,4 +9,5 @@ struct Material {
   double T_melt    = 0.0;       // температура плавления, Цельсий
   double rho       = 1000.0;    // плотность, кг/м^3
 };
- 
+
+}

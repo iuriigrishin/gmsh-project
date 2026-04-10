@@ -10,11 +10,11 @@ private:
   int n_;
   double domain_size_;
   double dx_;
-  Material mat_;
+  sim::SimMaterial mat_;
   std::vector<double> data_;
 
  public:
-  Grid(int n, double domain_size, Material mat);
+  Grid(int n, double domain_size, sim::SimMaterial mat);
 
   double& H(int i, int j);
   double  H(int i, int j) const;
@@ -33,7 +33,7 @@ private:
     return domain_size_;
   }
 
-  const Material& material() const {
+  const sim::SimMaterial& material() const {
     return mat_;
   }
 
