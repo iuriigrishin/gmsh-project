@@ -9,7 +9,7 @@
 
 int main() {
     // parametersя
-    constexpr int    GRID_SIZE       = 50;
+    constexpr int    GRID_SIZE       = 100;
     constexpr double DOMAIN_SIZE     = 0.01;
     constexpr int    WINDOW_SIZE     = 800;
     constexpr double DT              = 5e-4;
@@ -71,6 +71,42 @@ int main() {
             }
         }
 
+        // левая кнопка мыши — горячий источник
+        if (IsMouseButtonDown(MOUSE_BUTTON_LEFT)) {
+            Vector2 pos = GetMousePosition();
+            int j = static_cast<int>(pos.x / (WINDOW_SIZE / GRID_SIZE));
+            int i = static_cast<int>(pos.y / (WINDOW_SIZE / GRID_SIZE));
+            int radius = 3;
+            for (int di = -radius; di <= radius; ++di) {
+                for (int dj = -radius; dj <= radius; ++dj) {
+                    int ni = i + di, nj = j + dj;
+                    if (ni >= 0 && ni < GRID_SIZE && nj >= 0 && nj < GRID_SIZE) {
+                        if (di*di + dj*dj <= radius*radius) {
+                            grid.H(ni, nj) = grid.H_from_T_liquid(80.0);
+                        }
+                    }
+                }
+            }
+        }
+
+        // правая кнопка мыши — холодный источник
+        if (IsMouseButtonDown(MOUSE_BUTTON_RIGHT)) {
+            Vector2 pos = GetMousePosition();
+            int j = static_cast<int>(pos.x / (WINDOW_SIZE / GRID_SIZE));
+            int i = static_cast<int>(pos.y / (WINDOW_SIZE / GRID_SIZE));
+            int radius = 3;
+            for (int di = -radius; di <= radius; ++di) {
+                for (int dj = -radius; dj <= radius; ++dj) {
+                    int ni = i + di, nj = j + dj;
+                    if (ni >= 0 && ni < GRID_SIZE && nj >= 0 && nj < GRID_SIZE) {
+                        if (di*di + dj*dj <= radius*radius) {
+                            grid.H(ni, nj) = grid.H_from_T_solid(-30.0);
+                        }
+                    }
+                }
+            }
+        }
+
         BeginDrawing();
         ClearBackground(BLACK);
         renderer.draw(grid);
@@ -84,7 +120,7 @@ int main() {
             paused ? "PAUSED" : "RUNNING"
         );
         DrawText(info, 10, 10, 18, WHITE);
-        DrawText("[1] Block Melt  [2] Stefan 1D  [SPACE] pause  [R] reset", 10, WINDOW_SIZE - 30, 14, GRAY);
+        DrawText("[1][2] scenes  [SPACE] pause  [R] reset  [F] record  [LMB] heat  [RMB] freeze", 10, WINDOW_SIZE - 30, 14, GRAY);
         DrawFPS(WINDOW_SIZE - 90, 10);
 
         EndDrawing();
