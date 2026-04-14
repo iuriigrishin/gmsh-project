@@ -12,6 +12,8 @@ add_executable(microproject
     src/core/solver.cpp
     src/render/renderer.cpp
     src/scenes/block_melt.cpp
+    src/scenes/stefan_1d.cpp
+    src/export/csv_writer.cpp
 )
 
 target_include_directories(microproject PRIVATE src)
