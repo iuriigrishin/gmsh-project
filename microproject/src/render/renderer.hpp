@@ -9,6 +9,6 @@ public:
 
 private:
   int window_size_;
-  double T_min_ = -20.0;
-  double T_max_ =  30.0;
+  double T_min_ = -2.0;
+  double T_max_ =  0.01;
 };

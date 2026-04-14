@@ -14,6 +14,7 @@ add_executable(microproject
     src/scenes/block_melt.cpp
     src/scenes/stefan_1d.cpp
     src/export/csv_writer.cpp
+    src/scenes/snowflake.cpp
 )
 
 target_include_directories(microproject PRIVATE src)

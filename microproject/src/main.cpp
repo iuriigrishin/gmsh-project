@@ -6,28 +6,28 @@
 #include "scenes/block_melt.hpp"
 #include "scenes/stefan_1d.hpp"
 #include "export/csv_writer.hpp"
+#include "scenes/snowflake.hpp"
 
 int main() {
     // parametersя
-    constexpr int    GRID_SIZE       = 100;
-    constexpr double DOMAIN_SIZE     = 0.01;
+    constexpr int    GRID_SIZE       = 200;
+    constexpr double DOMAIN_SIZE     = 0.1;
     constexpr int    WINDOW_SIZE     = 800;
     constexpr double DT              = 5e-4;
-    constexpr int    STEPS_PER_FRAME = 200;
+    constexpr int    STEPS_PER_FRAME = 20;
     constexpr int    CSV_INTERVAL    = 50;
 
     // initinilization
     sim::SimMaterial mat;
-    mat.k_solid = 0.6;
-    // mat.k_solid  = 200.0;   // было 2.2
-    // mat.k_liquid = 200.0;   // было 0.6
     Grid grid(GRID_SIZE, DOMAIN_SIZE, mat);
 
-    BlockMelt scene_block;
+    BlockMelt scene_block; // для валидации
     StefanValidation scene_stefan;
-    Scene* scene = &scene_stefan;  // по умолчанию — валидация
+    Scene* scene = &scene_stefan;
     scene->init(grid);
 
+
+    Snowflake scene_snow;
     // для валидации: левая стенка фиксирована, остальные адиабатические
     Solver solver(grid, BoundaryType::Fixed);
     Renderer renderer(WINDOW_SIZE);
@@ -57,6 +57,13 @@ int main() {
         if (IsKeyPressed(KEY_R)) {
             scene->init(grid);
             solver = Solver(grid, BoundaryType::Fixed);
+            paused = false;
+        }
+
+        if (IsKeyPressed(KEY_THREE)) {
+            scene = &scene_snow;
+            scene->init(grid);
+            solver = Solver(grid, BoundaryType::Adiabatic);
             paused = false;
         }
 
