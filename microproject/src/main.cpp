@@ -7,14 +7,15 @@
 #include "scenes/stefan_1d.hpp"
 #include "export/csv_writer.hpp"
 #include "scenes/snowflake.hpp"
+#include "scenes/icicle.hpp"
 
 int main() {
     // parametersя
-    constexpr int    GRID_SIZE       = 200;
+    constexpr int    GRID_SIZE       = 100;
     constexpr double DOMAIN_SIZE     = 0.1;
     constexpr int    WINDOW_SIZE     = 800;
-    constexpr double DT              = 5e-4;
-    constexpr int    STEPS_PER_FRAME = 20;
+    constexpr double DT              = 5e-3;
+    constexpr int    STEPS_PER_FRAME = 100;
     constexpr int    CSV_INTERVAL    = 50;
 
     // initinilization
@@ -28,6 +29,8 @@ int main() {
 
 
     Snowflake scene_snow;
+
+    Icicle scene_icicle;
     // для валидации: левая стенка фиксирована, остальные адиабатические
     Solver solver(grid, BoundaryType::Fixed);
     Renderer renderer(WINDOW_SIZE);
@@ -64,6 +67,13 @@ int main() {
             scene = &scene_snow;
             scene->init(grid);
             solver = Solver(grid, BoundaryType::Adiabatic);
+            paused = false;
+        }
+
+        if (IsKeyPressed(KEY_FOUR)) {
+            scene = &scene_icicle;
+            scene->init(grid);
+            solver = Solver(grid, BoundaryType::Fixed);
             paused = false;
         }
 
