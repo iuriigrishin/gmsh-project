@@ -16,7 +16,7 @@ void Snowflake::init(Grid& grid) {
             if (brightness < 0.5) {
                 grid.H(i, j) = grid.H_from_T_solid(-1.0);
             } else {
-                grid.H(i, j) = grid.H_from_T_liquid(1.0);
+                grid.H(i, j) = grid.H_from_T_liquid(36.0);
             }
         }
     }

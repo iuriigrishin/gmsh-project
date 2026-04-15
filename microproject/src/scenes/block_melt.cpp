@@ -8,7 +8,7 @@ void BlockMelt::init(Grid& grid) {
       if (j < n / 2) {
         grid.H(i, j) = grid.H_from_T_solid(-10.0);
       } else {
-        grid.H(i, j) = grid.H_from_T_liquid(20.0);
+        grid.H(i, j) = grid.H_from_T_liquid(40.0);
       }
     }
   }

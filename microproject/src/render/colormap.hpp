@@ -26,3 +26,5 @@ inline Color temperature_to_color(double T, double T_min, double T_max) {
 
     return Color{r, g, b, 255};
 }
+
+

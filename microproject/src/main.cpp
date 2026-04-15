@@ -12,9 +12,9 @@
 int main() {
     // parametersя
     constexpr int    GRID_SIZE       = 100;
-    constexpr double DOMAIN_SIZE     = 0.1;
+    constexpr double DOMAIN_SIZE     = 0.005;
     constexpr int    WINDOW_SIZE     = 800;
-    constexpr double DT              = 5e-3;
+    constexpr double DT              = 5e-5;
     constexpr int    STEPS_PER_FRAME = 100;
     constexpr int    CSV_INTERVAL    = 50;
 

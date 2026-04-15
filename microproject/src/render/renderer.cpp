@@ -24,3 +24,4 @@ void Renderer::draw(const Grid& grid) const {
     }
   }
 }
+
