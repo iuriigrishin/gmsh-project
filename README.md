@@ -18,7 +18,8 @@ $$T(H) = \begin{cases} T_{melt} + H / (\rho c_s), & H < 0 \quad \text{(лёд)} 
 
 Снежинка (из PNG-маски) помещается в тёплую воду. Тонкие лучи тают первыми, центр — последним.
 
-![Таяние снежинки](microproject/src/results/snowflake_example.mov)
+![Таяние снежинки](https://youtu.be/3Jm9fgB6ytE)
+
 
 ## Валидация
 
@@ -26,7 +27,8 @@ $$T(H) = \begin{cases} T_{melt} + H / (\rho c_s), & H < 0 \quad \text{(лёд)} 
 
 $$s(t) = 2\lambda\sqrt{\alpha t}$$
 
-![Валидация](results/validation.png)
+![Валидация](microproject/results
+/validation.png)
 
 ## Сборка и запуск
 
