@@ -27,8 +27,7 @@ $$T(H) = \begin{cases} T_{melt} + H / (\rho c_s), & H < 0 \quad \text{(лёд)} 
 
 $$s(t) = 2\lambda\sqrt{\alpha t}$$
 
-![Валидация](microproject/results
-/validation.png)
+![Валидация](microproject/results/validation.png)
 
 ## Сборка и запуск
 
