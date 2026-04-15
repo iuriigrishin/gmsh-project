@@ -18,8 +18,10 @@ $$T(H) = \begin{cases} T_{melt} + H / (\rho c_s), & H < 0 \quad \text{(лёд)} 
 
 Снежинка (из PNG-маски) помещается в тёплую воду. Тонкие лучи тают первыми, центр — последним.
 
-![Таяние снежинки](https://youtu.be/3Jm9fgB6ytE)
+![Таяние снежинки]()
+<img width="792" height="792" alt="image" src="https://github.com/user-attachments/assets/0c2d049b-fb7d-4b6a-acd5-efaea3f03b87" />
 
+https://youtu.be/3Jm9fgB6ytE
 
 ## Валидация
 
